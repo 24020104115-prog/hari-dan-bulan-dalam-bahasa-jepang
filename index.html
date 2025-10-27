@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari dan Bulan dalam Bahasa Jepang</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffe6eb, #fff8f0);
+    text-align: center;
+    transition: background 1s ease;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    padding: 20px;
+    animation: fadeIn 0.8s forwards;
+  }
+
+  .active {
+    display: block;
+    opacity: 1;
+  }
+
+  h1,h2 {
+      text-align: center;
+      color: #ff6f61;
+  }
+
+  button {
+    background: linear-gradient(90deg, #ffd3d3, #ffb6b9);
+    border: none;
+    padding: 12px 20px;
+    margin: 12px auto;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
+    display: block;
+    transition: transform 0.2s, background 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(90deg, #ff9aa2, #ffb6c1);
+    transform: scale(1.05);
+  }
+
+table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      border: 1px solid #ffb6b9;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f6abb6;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff0f5;
+    }
+
+    .question {
+      margin: 20px 0;
+      background: #ffe4e1;
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      color: white;
+      background-color: #ff9a8b;
+      margin-top: 40px;
+    }
+
+    .score {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      color: #4caf50;
+      margin-top: 20px;
+    }
+
+    .result-message {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+      color: #ff4081;
+    }
+
+  .question {
+    margin-bottom: 20px;
+    text-align: left;
+    background-color: #fff5f7;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.4);
+  }
+
+  #hasil {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #e84170;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+ 
+  .result-box {
+    border-radius: 10px;
+    margin: 15px auto;
+    padding: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    transition: opacity 1s ease;
+  }
+
+  .benar {
+    background-color: #d1f7d1;
+    border-left: 6px solid #4caf50;
+  }
+
+  .salah {
+    background-color: #ffd6d6;
+    border-left: 6px solid #ff4d4d;
+  }
+  
+  #hasil.show {
+    opacity: 1;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div id="cover" class="page active">
+  <h1> Hari dan Bulan dalam Bahasa Jepang </h1>
+  <h1> 日本語の曜日と月 </h1>
+  <p>Pilih materi yang ingin kamu pelajari:</p>
+  <button onclick="showPage('hari')">Hari</button>
+  <button onclick="showPage('bulan')">Bulan</button>
+  <button onclick="showPage('soal')">Latihan Soal</button>
+</div>
+
+<!-- HALAMAN HARI -->
+<div id="hari" class="page">
+  <h2>Hari dalam Bahasa Jepang</h2>
+  <table>
+    <tr><th>Bahasa Indonesia</th><th>Bahasa Jepang</th><th>Romaji</th></tr>
+    <tr><td>Senin</td><td>月曜日（げつようび）</td><td>Getsuyoubi</td></tr>
+    <tr><td>Selasa</td><td>火曜日（かようび）</td><td>Kayoubi</td></tr>
+    <tr><td>Rabu</td><td>水曜日（すいようび）</td><td>Suiyoubi</td></tr>
+    <tr><td>Kamis</td><td>木曜日（もくようび）</td><td>Mokuyoubi</td></tr>
+    <tr><td>Jumat</td><td>金曜日（きにょうび）</td><td>Kinyoubi</td></tr>
+    <tr><td>Sabtu</td><td>土曜日（どようび）</td><td>Doyoubi</td></tr>
+    <tr><td>Minggu</td><td>日曜日（にちようび）</td><td>Nichiyoubi</td></tr>
+  </table>
+    <div class="menu">
+      <button onclick="showPage('cover')">Kembali</button>
+    </div>
+</div>
+
+<!-- HALAMAN BULAN -->
+<div id="bulan" class="page">
+  <h2>Bulan dalam Bahasa Jepang</h2>
+  <table>
+    <tr><th>Bahasa Indonesia</th><th>Bahasa Jepang</th><th>Romaji</th></tr>
+    <tr><td>Januari</td><td>一月（いちがつ）</td><td>Ichigatsu</td></tr>
+    <tr><td>Februari</td><td>二月（にがつ）</td><td>Nigatsu</td></tr>
+    <tr><td>Maret</td><td>三月（さんがつ）</td><td>Sangatsu</td></tr>
+    <tr><td>April</td><td>四月（しがつ）</td><td>Shigatsu</td></tr>
+    <tr><td>Mei</td><td>五月（ごがつ）</td><td>Gogatsu</td></tr>
+    <tr><td>Juni</td><td>六月（ろくがつ）</td><td>Rokugatsu</td></tr>
+    <tr><td>Juli</td><td>七月（しちがつ）</td><td>Shichigatsu</td></tr>
+    <tr><td>Agustus</td><td>八月（はちがつ）</td><td>Hachigatsu</td></tr>
+    <tr><td>September</td><td>九月（くがつ）</td><td>Kugatsu</td></tr>
+    <tr><td>Oktober</td><td>十月（じゅうがつ）</td><td>Juugatsu</td></tr>
+    <tr><td>November</td><td>十一月（じゅういちがつ）</td><td>Juuichigatsu</td></tr>
+    <tr><td>Desember</td><td>十二月（じゅうにがつ）</td><td>Juunigatsu</td></tr>
+  </table>
+  <button onclick="showPage('cover')">Kembali</button>
+</div>
+
+<!-- SOAL -->
+<div id="soal" class="page">
+  <h1>Latihan Soal</h1>
+
+  <div id="daftar-soal"></div>
+
+  <button onclick="cekNilai()">Cek Nilai</button>
+  <button onclick="showPage('cover')">Kembali</button>
+</div>
+
+<!-- HASIL -->
+<div id="hasil" class="page">
+  <h1>Hasil Nilai Kamu</h1>
+  <div id="hasil-nilai" class="score"></div>
+  <div id="detail-hasil"></div>
+  <button onclick="showPage('soal')">Coba Lagi</button>
+  <button onclick="showPage('cover')">Selesai</button>
+</div>
+
+<script>
+const soal = [
+  {tanya: "Apa bahasa Jepang dari 'Senin'?", opsi: ["Kayoubi","Getsuyoubi","Nichiyoubi","Kinyoubi"], benar: "Getsuyoubi"},
+  {tanya: "Bahasa Jepang dari 'Maret' adalah...", opsi: ["Sangatsu","Shigatsu","Hachigatsu","Juugatsu"], benar: "Sangatsu"},
+  {tanya: "Apa arti dari 'Nichiyoubi'?", opsi: ["Sabtu","Minggu","Kamis","Rabu"], benar: "Minggu"},
+  {tanya: "'Agustus' dalam bahasa Jepang disebut...", opsi: ["Shichigatsu","Rokugatsu","Hachigatsu","Kugatsu"], benar: "Hachigatsu"},
+  {tanya: "Bahasa Jepang dari 'Desember' adalah...", opsi: ["Juunigatsu","Juugatsu","Juuichigatsu","Sangatsu"], benar: "Juunigatsu"},
+  {tanya: "Bahasa Jepang dari 'Kamis' adalah...", opsi: ["Kayoubi","Mokuyoubi","Suiyoubi","Doyoubi"], benar: "Mokuyoubi"},
+  {tanya: "'Shigatsu' berarti bulan apa?", opsi: ["April","Mei","Juli","September"], benar: "April"},
+  {tanya: "Apa arti dari 'Kinyoubi'?", opsi: ["Rabu","Jumat","Minggu","Sabtu"], benar: "Jumat"},
+  {tanya: "'Ichigatsu' adalah bulan keberapa?", opsi: ["1","2","3","4"], benar: "1"},
+  {tanya: "Bahasa Jepang dari 'Sabtu' adalah...", opsi: ["Doyoubi","Suiyoubi","Nichiyoubi","Kayoubi"], benar: "Doyoubi"}
+];
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function renderSoal(){
+  const container = document.getElementById("daftar-soal");
+  container.innerHTML = "";
+  soal.forEach((s, i)=>{
+    let html = `<div class='question'>
+      <p>${i+1}. ${s.tanya}</p>`;
+    s.opsi.forEach(o=>{
+      html += `<label><input type='radio' name='q${i}' value='${o}'> ${o}</label><br>`;
+    });
+    html += "</div>";
+    container.innerHTML += html;
+  });
+}
+renderSoal();
+
+function cekNilai(){
+  let skor = 0;
+  let hasilDetail = "";
+  soal.forEach((s, i)=>{
+    const jawaban = document.querySelector(`input[name="q${i}"]:checked`);
+    const pilih = jawaban ? jawaban.value : "(tidak dijawab)";
+    if (pilih === s.benar) {
+      skor += 10;
+      hasilDetail += `<div class='result-box benar'><b>${i+1}.</b> Jawaban kamu: ${pilih} ✅</div>`;
+    } else {
+      hasilDetail += `<div class='result-box salah'><b>${i+1}.</b> Jawaban kamu: ${pilih} ❌<br>Jawaban benar: ${s.benar} ✅</div>`;
+    }
+  });
+  document.getElementById("hasil-nilai").innerHTML = `Nilai kamu: ${skor} / 100`;
+  document.getElementById("detail-hasil").innerHTML = hasilDetail;
+  showPage('hasil');
+}
+</script>
+</body>
+</html>
